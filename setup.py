@@ -33,6 +33,6 @@ setup(
     ],
     python_requires='>=3.6',
     entry_points={
-        'spacy_factories': 'opentapioca = spacy_opentapioca.entity_linker:EntityLinker'
+        'spacy_factories': 'opentapioca = spacyopentapioca.entity_linker:EntityLinker'
     }
 )
