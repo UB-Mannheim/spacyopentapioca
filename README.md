@@ -42,8 +42,8 @@ for span in doc.ents:
     print((span._.types, span._.aliases[0:5]))
 ```
 ```shell
-({'Q43229': False, 'Q618123': False, 'Q5': True, 'P2427': False, 'P1566': False, 'P496': True}, ['???????? ???????', '???????? ???????', 'Christian Heinrich Maria Drosten', '??????? ??????', '????? ????'])
-({'Q43229': True, 'Q618123': True, 'Q5': False, 'P2427': False, 'P1566': True, 'P496': False}, ['IJalimani', 'R. F. A.', 'Alemania', '?????', 'Germaniya'])
+({'Q43229': False, 'Q618123': False, 'Q5': True, 'P2427': False, 'P1566': False, 'P496': True}, ['كريستيان دروستين', 'Крістіан Дростен', 'Christian Heinrich Maria Drosten', 'کریستین دروستن', '크리스티안 드로스텐'])
+({'Q43229': True, 'Q618123': True, 'Q5': False, 'P2427': False, 'P1566': True, 'P496': False}, ['IJalimani', 'R. F. A.', 'Alemania', '도이칠란트', 'Germaniya'])
 ```
 
 The Wikidata QIDs are attached to tokens:
