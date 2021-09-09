@@ -27,7 +27,7 @@ class EntityLinker(object):
         # Post request to the OpenTapioca API
         r = requests.post(url=self.url,
                           data={'query': doc.text},
-                          headers={'User-Agent': 'Testing OpenTapioca'})
+                          headers={'User-Agent': 'spaCyOpenTapioca'})
         r.raise_for_status()
         data = r.json()
 
