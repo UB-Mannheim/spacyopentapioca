@@ -43,12 +43,13 @@ class EntityLinker(object):
             start, end = ent['start'], ent['end']
             if ent.get('best_qid'):
                 ent_kb_id = ent['best_qid']
-                try:
+                try:  # to identify the type of entities
                     t = ent['tags'][0]['types']
-                    etype = 'PERSON' * t['Q5'] + 'ORG' * t['Q43229'] + 'LOC' * t['Q618123']
-                    # For LOC-entities it's often "ORGLOC". It needs testing.
-                    if etype == "ORGLOC":
-                        etype = "LOC"
+                    types = {'PERSON': t['Q5'] + t['P496'],
+                             'ORG': t['Q43229'] + t['P2427'],
+                             'LOC': t['Q618123'] + t['P1566']}
+                    m = max(types.values())
+                    etype = ''.join([k for k, v in types.items() if v == m])
                 except Exception:
                     etype = ''
                 span = doc.char_span(start, end, etype, ent_kb_id)
