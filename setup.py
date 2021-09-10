@@ -7,7 +7,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="spacyopentapioca",
-    version='0.1.0',
+    version='0.1.1',
     author="Renat Shigapov",
     license="MIT",
     description="A spaCy wrapper of OpenTapioca for named entity linking on Wikidata.",
