@@ -6,6 +6,7 @@ A [spaCy](https://spacy.io) wrapper of [OpenTapioca](https://opentapioca.org) fo
 * [Installation](#installation)
 * [How to use](#how-to-use)
 * [Local OpenTapioca](#local-opentapioca)
+* [Vizualization](#vizualization)
 
 ## Installation
 
@@ -92,3 +93,6 @@ nlp = spacy.blank("en")
 nlp.add_pipe('opentapioca', config={"url": OpenTapiocaAPI})
 doc = nlp("Christian Drosten works in Germany.")
 ```
+## Vizualization
+
+NER vizualization in spaCy via displaCy cannot show yet the links to entities. This can be added into spaCy as proposed in [issue 9129](https://github.com/explosion/spaCy/issues/9129).
