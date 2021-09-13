@@ -20,6 +20,10 @@ class EntityLinker(object):
         Span.set_extension("rank", default=None, force=True)
         Span.set_extension("score", default=None, force=True)
         Span.set_extension("types", default=None, force=True)
+        Span.set_extension("label", default=None, force=True)
+        Span.set_extension("extra_aliases", default=None, force=True)
+        Span.set_extension("nb_sitelinks", default=None, force=True)
+        Span.set_extension("nb_statements", default=None, force=True)
 
     def __call__(self, doc):
         """Requests the OpenTapioca API. Attaches entities to spans and doc."""
@@ -68,6 +72,10 @@ class EntityLinker(object):
             span._.rank = ent['tags'][0]['rank']
             span._.score = ent['tags'][0]['score']
             span._.types = ent['tags'][0]['types']
+            span._.label = ent['tags'][0]['label']
+            span._.extra_aliases = ent['tags'][0]['extra_aliases']
+            span._.nb_sitelinks = ent['tags'][0]['nb_sitelinks']
+            span._.nb_statements = ent['tags'][0]['nb_statements']
             ents.append(span)
 
         # Attach processed entities to doc.ents
