@@ -79,7 +79,11 @@ span._.description
 span._.aliases
 span._.rank
 span._.score
-span._.types 
+span._.types
+span._.label
+span._.extra_aliases
+span._.nb_sitelinks
+span._.nb_statements
 ```
 
 Note that spaCyOpenTapioca does a tiny processing of entities appearing in `doc.ents`. All entities returned by OpenTapioca can be found in `doc.spans['all_entities_opentapioca']`.
