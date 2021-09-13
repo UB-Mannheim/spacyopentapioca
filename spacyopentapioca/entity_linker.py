@@ -55,6 +55,13 @@ class EntityLinker(object):
                 span = doc.char_span(start, end, etype, ent_kb_id)
             else:
                 span = doc.char_span(start, end, '')
+            if not span:
+                span = doc.char_span(start, end, etype, ent_kb_id,
+                                     alignment_mode='expand')
+                print('WARNING! The OpenTapioca-entity',
+                      ent['tags'][0]['label'][0], (start,end),
+                      'does not fit the span', span.text,
+                      (span.start_char, span.end_char), 'in spaCy. EXPANDED!')
             span._.annotations = ent
             span._.description = ent['tags'][0]['desc']
             span._.aliases = ent['tags'][0]['aliases']
@@ -68,8 +75,8 @@ class EntityLinker(object):
             # this works with non-overlapping spans
             doc.ents = list(doc.ents) + ents
         except Exception:
-            # filter the  overlapping spans, keep the (first) longest one
-            doc.ents = list(doc.ents) + spacy.util.filter_spans(ents)
+            # filter the overlapping spans, keep the (first) longest one
+            doc.ents = spacy.util.filter_spans(ents)
         # Attach all entities found by OpenTapioca to spans
         doc.spans['all_entities_opentapioca'] = ents
         return doc
