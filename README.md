@@ -99,4 +99,27 @@ doc = nlp("Christian Drosten works in Germany.")
 ```
 ## Vizualization
 
-NER vizualization in spaCy via displaCy cannot show yet the links to entities. This can be added into spaCy as proposed in [issue 9129](https://github.com/explosion/spaCy/issues/9129).
+NEL vizualization is added to spaCy via [pull request 9199](https://github.com/explosion/spaCy/pull/9199) for [issue 9129](https://github.com/explosion/spaCy/issues/9129). Install spaCy from GitHub via:
+```python
+pip install git+https://github.com/explosion/spaCy
+```
+
+Use manual option in displaCy:
+```python
+import spacy
+nlp = spacy.blank("en")
+nlp.add_pipe('opentapioca')
+doc = nlp("Christian Drosten works\n in Charité, Germany.")
+params = {"text": doc.text,
+          "ents": [{"start": ent.start_char,
+                    "end": ent.end_char,
+                    "label": ent.label_,
+                    "kb_id": ent.kb_id_,
+                    "kb_url": "https://www.wikidata.org/entity/" + ent.kb_id_} 
+                   for ent in doc.ents],
+          "title": None}
+spacy.displacy.serve(params, style="ent", manual=True)
+```
+The visualizer is serving on http://0.0.0.0:5000.
+
+In Jupyter Notebook replace `spacy.displacy.serve` by `spacy.displacy.render`.
