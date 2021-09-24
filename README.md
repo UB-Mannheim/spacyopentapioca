@@ -120,6 +120,8 @@ params = {"text": doc.text,
           "title": None}
 spacy.displacy.serve(params, style="ent", manual=True)
 ```
-The visualizer is serving on http://0.0.0.0:5000.
+The visualizer is serving on http://0.0.0.0:5000
+
+![alt text](https://github.com/UB-Mannheim/spacyopentapioca/blob/main/images/nel_vizualization.png)
 
 In Jupyter Notebook replace `spacy.displacy.serve` by `spacy.displacy.render`.
