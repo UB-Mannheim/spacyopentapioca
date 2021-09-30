@@ -1,0 +1,492 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Quick start &#8212; spaCyOpenTapioca</title>
+    
+  <link href="../_static/css/theme.css" rel="stylesheet" />
+  <link href="../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+
+    
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css?digest=c3fdc42140077d1ad13ad2f1588a4309" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="spaCyOpenTapioca" href="index.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+      
+      
+      <h1 class="site-logo" id="site-title">spaCyOpenTapioca</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Quick start
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/docs/demo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/UB-Mannheim/spacyopentapioca"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/UB-Mannheim/spacyopentapioca/main?urlpath=tree/docs/docs/demo.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="quick-start">
+<h1>Quick start<a class="headerlink" href="#quick-start" title="Permalink to this headline">¶</a></h1>
+<p>spaCyOpenTapioca is a spaCy pipeline for named entity linking using OpenTapioca</p>
+<p>First, install spaCy and spaCyOpenTapioca:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install git+https://github.com/explosion/spaCy
+<span class="o">!</span>pip install spacyopentapioca
+</pre></div>
+</div>
+</div>
+</div>
+<p>Then, import spaCy and add the pipeline <code class="docutils literal notranslate"><span class="pre">OpenTapioca</span></code>:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">spacy</span>
+<span class="n">nlp</span> <span class="o">=</span> <span class="n">spacy</span><span class="o">.</span><span class="n">blank</span><span class="p">(</span><span class="s2">&quot;en&quot;</span><span class="p">)</span>
+<span class="n">nlp</span><span class="o">.</span><span class="n">add_pipe</span><span class="p">(</span><span class="s1">&#39;opentapioca&#39;</span><span class="p">)</span>
+<span class="n">doc</span> <span class="o">=</span> <span class="n">nlp</span><span class="p">(</span><span class="s2">&quot;Christian Drosten works in Charité, Germany.&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">span</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">kb_id_</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">label_</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">description</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">score</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Christian Drosten&#39;, &#39;Q1079331&#39;, &#39;PERSON&#39;, &#39;German virologist and university teacher&#39;, 1.7265554428236625)
+(&#39;Charité&#39;, &#39;Q162684&#39;, &#39;ORG&#39;, &#39;university hospital in Berlin, Germany&#39;, 1.266987145014507)
+(&#39;Germany&#39;, &#39;Q183&#39;, &#39;LOC&#39;, &#39;sovereign state in Central Europe&#39;, 1.0571540026892925)
+</pre></div>
+</div>
+</div>
+</div>
+<p>Let’s check the raw types and aliases:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">span</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">types</span><span class="p">,</span> <span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">aliases</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>({&#39;Q43229&#39;: False, &#39;Q618123&#39;: False, &#39;Q5&#39;: True, &#39;P2427&#39;: False, &#39;P1566&#39;: False, &#39;P496&#39;: True}, [&#39;كريستيان دروستين&#39;, &#39;Крістіан Дростен&#39;, &#39;Christian Heinrich Maria Drosten&#39;, &#39;کریستین دروستن&#39;, &#39;크리스티안 드로스텐&#39;, &#39;德羅斯登&#39;, &#39;クリスチャン・ドロステン&#39;, &#39;Дростен, Кристиан&#39;, &#39;Кристиан Хайнрих Мария Дростен&#39;, &#39;Кристиан Дростен&#39;])
+({&#39;Q43229&#39;: True, &#39;Q618123&#39;: True, &#39;Q5&#39;: False, &#39;P2427&#39;: True, &#39;P1566&#39;: False, &#39;P496&#39;: False}, [&#39;Шаритэ&#39;, &#39;Charite&#39;, &#39;Hôpital de la Charité&#39;, &#39;Charité - Universitätsmedizin Berlin&#39;, &#39;hôpital universitaire de la Charité de Berlin&#39;, &#39;ospedale della Charité&#39;, &#39;Charite (Berlijn)&#39;, &#39;Charitésjukhuset&#39;, &#39;شاريتيه&#39;, &#39;シャリテ&#39;, &#39;シャリテ＝大学医療・ベルリン&#39;, &#39;Шаріте&#39;, &#39;ospedale universitario della Charité&#39;, &#39;Universitätsmedizin Berlin&#39;, &#39;Charité-ziekenhuis&#39;, &#39;שאריטה&#39;, &#39;ชารีเท&#39;, &#39;Šaritē - Berlīnes Universitātes slimnīca&#39;, &#39;Hôpital de la Charité de Berlin&#39;, &#39;샤리테&#39;, &#39;Charité Universitätsmedizin Berlin&#39;, &#39;Charité – University Medicine Berlin&#39;, &#39;Շարիտե&#39;, &#39;Шарите&#39;, &#39;シャリティ&#39;, &#39;シャリテー&#39;, &#39;Caritatis nosocomium&#39;, &#39;夏綠蒂教學醫院&#39;, &#39;Charité hospital&#39;, &#39;შარიტე&#39;])
+({&#39;Q43229&#39;: True, &#39;Q618123&#39;: True, &#39;Q5&#39;: False, &#39;P2427&#39;: False, &#39;P1566&#39;: True, &#39;P496&#39;: False}, [&#39;IJalimani&#39;, &#39;R. F. A.&#39;, &#39;Alemania&#39;, &#39;도이칠란트&#39;, &#39;Germaniya&#39;, &#39;ܓܪܡܢ&#39;, &#39;Jeremane&#39;, &#39;Heremani&#39;, &#39;IJamani&#39;, &#39;Dwzgoz&#39;, &#39;Vuokītėjė&#39;, &#39;Germania&#39;, &#39;Алман иле&#39;, &#39;Germanie&#39;, &#39;آلمان&#39;, &#39;ਜਰਮਨੀ&#39;, &#39;Jarimani&#39;, &#39;Jermani&#39;, &#39;Almaniya&#39;, &#39;Duutsjlandj&#39;, &#39;جرمني&#39;, &#39;RFG&#39;, &#39;Lanlmangn&#39;, &#39;Duiskka lihttodásseváldi&#39;, &#39;Немачка&#39;, &#39;Yr Almaen&#39;, &#39;Németország&#39;, &#39;ᔮᒪᓂ&#39;, &#39;RFA&#39;, &#39;Almayn&#39;, &#39;de&#39;, &#39;Mjymcy&#39;, &#39;ဂျာမနီနိုင်ငံ&#39;, &#39;Ubudagi&#39;, &#39;Германия&#39;, &#39;Gjermania&#39;, &#39;ФРГ&#39;, &#39;Ubudage&#39;, &#39;Dútslân&#39;, &#39;Německo&#39;, &#39;Spolková republika Německo&#39;, &#39;Gyaaman&#39;, &#39;Федерална република Германия&#39;, &#39;Girmania&#39;, &#39;Germana&#39;, &#39;ئەڵمانیا&#39;, &#39;Jẹ́mánì&#39;, &#39;Repubblica Federale di Germania&#39;, &#39;ཇཱར་མ་ནི་&#39;, &#39;Almaniya Federativ Respublikası&#39;, &#39;Немыч Эл&#39;, &#39;Федеративная Республика Германия&#39;, &#39;Saksa&#39;, &#39;Germuanii&#39;, &#39;Saksāmō&#39;, &#39;ഫെഡറൽ റിപ്പബ്ലിക് ഓഫ്\u200c ജർമ്മനി&#39;, &#39;Alémani&#39;, &#39;Kelemānia&#39;, &#39;Federal Republic of Germany&#39;, &#39;Đức&#39;, &#39;Nemecko&#39;, &#39;𐌸𐌹𐌿𐌳𐌹𐍃𐌺𐌰𐌻𐌰𐌽𐌳&#39;, &#39;Дойчланд&#39;, &#39;Yn Ghermaan&#39;, &#39;Германия Мастор&#39;, &#39;Allemagne&#39;, &#39;Njemačka&#39;, &#39;Alimagna&#39;, &#39;Tiamana&#39;, &#39;જર્મની&#39;, &#39;สหพันธ์สาธารณรัฐเยอรมนี&#39;, &#39;Ниицәтә Немшин Орн&#39;, &#39;Joermani&#39;, &#39;Düütsklound&#39;, &#39;Њемачка&#39;, &#39;Bundesrepublik Deutschland&#39;, &#39;ZRN&#39;, &#39;Němska&#39;, &#39;Almanya Federal Cumhuriyeti&#39;, &#39;德国&#39;, &#39;Germaniýa&#39;, &#39;ජර්මනිය&#39;, &#39;An Ghearmáin&#39;, &#39;Gweriniaeth Ffederal yr Almaen&#39;, &#39;Германиә&#39;, &#39;Hāmene&#39;, &#39;NSR&#39;, &#39;Saksa lett-tääʹssväʹlddksa&#39;, &#39;la République fédérale d’Allemagne&#39;, &#39;འཇར་མན།&#39;, &#39;Федератив Республика Германия&#39;, &#39;Allemagna&#39;, &#39;ߊߟߏߡߊ߲ߘߎ߯&#39;, &#39;Ġermanja&#39;, &#39;Nemačka&#39;, &#39;FRG&#39;, &#39;🇩🇪&#39;, &#39;Saksanma&#39;, &#39;Dáik-guók&#39;, &#39;Alemaina&#39;, &#39;Vācija&#39;, &#39;Germània&#39;, &#39;ألمانيا&#39;, &#39;Þēodscland&#39;, &#39;Alamagn&#39;, &#39;Düütschland&#39;, &#39;Германія&#39;, &#39;Γερμανία&#39;, &#39;Tek-kok&#39;, &#39;Alimanya&#39;, &#39;Þēodiscland&#39;, &#39;जर्मनी&#39;, &#39;República Federal da Alemanha&#39;, &#39;Német Szövetségi Köztársaság&#39;, &#39;Alemanyi&#39;, &#39;Germâgna&#39;, &#39;Jarmanii&#39;, &quot;République fédérale d&#39;Allemagne&quot;, &#39;Германие&#39;, &#39;Caama&#39;, &#39;독일연방공화국&#39;, &#39;Германие мастор&#39;, &#39;Gjermanie&#39;, &#39;Republica Federal de Alemania&#39;, &#39;ጀርመን&#39;, &#39;Gebundene Cynewīse Þēodisclandes&#39;, &#39;گېرمانىيە&#39;, &#39;אלמאניה&#39;, &#39;Германия Федеративтік Республикасы&#39;, &#39;Alimaña&#39;, &#39;德意志聯邦共和國&#39;, &#39;דייטשלאנד&#39;, &#39;德意志联邦共和国&#39;, &#39;ФРН&#39;, &#39;Dütschland&#39;, &#39;独国&#39;, &#39;Almaañ&#39;, &#39;جمهورية ألمانيا اﻻتحادية&#39;, &#39;Германи&#39;, &#39;Federale Republiek van Duitsland&#39;, &#39;Савезна Република Њемачка&#39;, &#39;Алмания Федератив Җөмһүрияте&#39;, &#39;DE&#39;, &#39;АФР&#39;, &#39;Almanya&#39;, &#39;Jeureuman&#39;, &#39;Dietschlaunt&#39;, &#39;Джэрмэн&#39;, &#39;Deutän&#39;, &#39;Գերմանիա&#39;, &#39;Олмон&#39;, &#39;Béésh Bichʼahii Bikéyah&#39;, &#39;Alemanya&#39;, &#39;Allemangne&#39;, &#39;Jémanị&#39;, &quot;S&#39;aksamaa&quot;, &#39;Zwězkowa republika Nimska&#39;, &#39;Doichland&#39;, &#39;جمهوری فدرال آلمان&#39;, &#39;Almay&#39;, &#39;អាល្លឺម៉ង់&#39;, &#39;All.&#39;, &#39;Ghjermania&#39;, &#39;Þýskaland&#39;, &#39;Saksan liittotasavalta&#39;, &#39;Германиа&#39;, &#39;IJalimane&#39;, &#39;Girimane&#39;, &#39;Almania&#39;, &#39;Нѣмьци&#39;, &#39;República Federal de Alemania&#39;, &#39;Ҷумҳурии Федералии Олмон&#39;, &#39;Olmoniya&#39;, &#39;Deutschland&#39;, &#39;德意志聯邦&#39;, &#39;Федератив Герман Республикасы&#39;, &#39;Alemagne&#39;, &#39;ᎠᏛᏥ&#39;, &#39;德意志&#39;, &#39;Almaanya&#39;, &#39;جرمنی&#39;, &quot;dotygu&#39;e&quot;, &#39;সংযুক্ত প্রজাতন্ত্রী জার্মানি&#39;, &#39;Saksa littotäsiväldi&#39;, &#39;გერმანია&#39;, &#39;Germanujo&#39;, &#39;Jarmalka&#39;, &#39;Jérman&#39;, &#39;ዶይችላንድ&#39;, &#39;ፈደራላዊት ሪፓብሊክ ጀርመን&#39;, &#39;Jermaniya&#39;, &#39;Förbundsrepubliken Tyskland&#39;, &#39;Дојчланд&#39;, &#39;Jamani&#39;, &#39;ଜର୍ମାନୀ&#39;, &#39;Ӂермания&#39;, &#39;မိူင်းၵျႃႇမၼီႇ&#39;, &#39;DEU&#39;, &#39;Duitsland&#39;, &#39;Saksslajânnam lett-tääʹssväʹldd&#39;, &#39;Vokietija&#39;, &#39;Daitschlond&#39;, &#39;SRN&#39;, &#39;Գերմանիայի Դաշնային Հանրապետություն&#39;, &#39;Немечму&#39;, &#39;Lalman&#39;, &#39;République fédérale allemande&#39;, &#39;Германија&#39;, &#39;Алмания&#39;, &#39;Alemanne&#39;, &quot;Ma&#39;evé&#39;ho&#39;éno&quot;, &#39;Bondsrepubliek&#39;, &#39;Deutxland&#39;, &#39;Deitschland&#39;, &#39;BR Deutschland&#39;, &#39;Jerman&#39;, &#39;Deutsch Liân-pang Kiōng-hô-kok&#39;, &#39;Ομοσπονδιακή Δημοκρατία της Γερμανίας&#39;, &#39;Miemieckô&#39;, &#39;Almanha&#39;, &#39;Týskland&#39;, &#39;செருமனி&#39;, &#39;Nemčija&#39;, &#39;Німеччина&#39;, &#39;Germanio&#39;, &#39;Nimska&#39;, &#39;Bondsrepubliek van Duitsland&#39;, &#39;Saksslajânnam&#39;, &#39;BRD&#39;, &#39;জার্মানি&#39;, &#39;Федеративна Республіка Німеччина&#39;, &#39;ドイツ連邦共和国&#39;, &#39;德意志联邦&#39;, &#39;Vuoceja&#39;, &#39;Алманиә&#39;, &#39;ஜெர்மனி&#39;, &#39;Xermanja&#39;, &#39;BR Döüdschlônd&#39;, &#39;Ҷумҳурии Федеролии Олмон&#39;, &#39;Djermani&#39;, &#39;Ghermãnia&#39;, &#39;Doysrikondre&#39;, &#39;Tjüschlönj&#39;, &#39;GER&#39;, &#39;Duutslaand&#39;, &#39;Tet-koet&#39;, &#39;Duutsland&#39;, &#39;გერმანიის ფედერაციული რესპუბლიკა&#39;, &#39;ജർമ്മനി&#39;, &#39;Gërmania&#39;, &quot;A&#39; Ghearmailt&quot;, &#39;ޖަރުމަނުވިލާތް&#39;, &#39;獨逸&#39;, &#39;Duiska&#39;, &#39;Nenāhuatīliztlācatlahtohcāyōtl Alemania&#39;, &#39;Almagne&#39;, &#39;Tyskland&#39;, &#39;Saksamaa&#39;, &#39;Döüdschlônd&#39;, &#39;Tysklaante&#39;, &#39;జర్మనీ&#39;, &#39;Нїмецько&#39;, &#39;ประเทศเยอรมนี&#39;, &#39;Republica Federală Germania&#39;, &#39;Zwjazkowa republika Němska&#39;, &#39;Teutontlālpan&#39;, &#39;Paejes tudësc&#39;, &#39;Ujerumani&#39;, &#39;Alemaña&#39;, &#39;ᱡᱟᱨᱢᱟᱱᱤ&#39;, &#39;Däitschland&#39;, &#39;Forbundsrepublikken Tyskland&#39;, &#39;Герман&#39;, &#39;גרמניה&#39;, &quot;República Federal d&#39;Alemaña&quot;, &#39;Alimaɲi&#39;, &#39;Alemanha&#39;, &#39;德國&#39;, &#39;ドイツ&#39;, &#39;ಜರ್ಮನಿ&#39;, &#39;Нямеччына&#39;, &#39;독일&#39;, &#39;Bondsrepubliek Duitsland&#39;, &#39;Bunnäsrebublik Döüdschlônd&#39;, &#39;Alemagna&#39;, &#39;Jamus&#39;, &#39;Siamani&#39;, &#39;Niemcy&#39;, &#39;Алман Федератив Республикасы&#39;, &#39;Герман иле&#39;, &#39;ປະເທດເຢັຽລະມັນ&#39;])
+</pre></div>
+</div>
+</div>
+</div>
+<p>The Wikidata QIDs are attached to tokens:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">token</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">((</span><span class="n">token</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">token</span><span class="o">.</span><span class="n">ent_kb_id_</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(&#39;Christian&#39;, &#39;Q1079331&#39;)
+(&#39;Drosten&#39;, &#39;Q1079331&#39;)
+(&#39;works&#39;, &#39;&#39;)
+(&#39;in&#39;, &#39;&#39;)
+(&#39;Charité&#39;, &#39;Q162684&#39;)
+(&#39;,&#39;, &#39;&#39;)
+(&#39;Germany&#39;, &#39;Q183&#39;)
+(&#39;.&#39;, &#39;&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<p>The raw annotations can be found in <code class="docutils literal notranslate"><span class="pre">doc._.annotations</span></code>. Let’s check the first one:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">annotations</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;start&#39;: 0,
+ &#39;end&#39;: 17,
+ &#39;tags&#39;: [{&#39;id&#39;: &#39;Q1079331&#39;,
+   &#39;label&#39;: [&#39;Christian Drosten&#39;],
+   &#39;aliases&#39;: [&#39;كريستيان دروستين&#39;,
+    &#39;Крістіан Дростен&#39;,
+    &#39;Christian Heinrich Maria Drosten&#39;,
+    &#39;کریستین دروستن&#39;,
+    &#39;크리스티안 드로스텐&#39;,
+    &#39;德羅斯登&#39;,
+    &#39;クリスチャン・ドロステン&#39;,
+    &#39;Дростен, Кристиан&#39;,
+    &#39;Кристиан Хайнрих Мария Дростен&#39;,
+    &#39;Кристиан Дростен&#39;],
+   &#39;extra_aliases&#39;: [&#39;0000-0001-7923-0519&#39;],
+   &#39;desc&#39;: &#39;German virologist and university teacher&#39;,
+   &#39;nb_statements&#39;: 60,
+   &#39;nb_sitelinks&#39;: 20,
+   &#39;edges&#39;: [6581097,
+    10905380,
+    1120501,
+    1305740,
+    1205214,
+    1305740,
+    10905334,
+    1546865,
+    15634281,
+    1622272,
+    183,
+    152171,
+    617048,
+    2496385,
+    162684,
+    18001597,
+    2018484,
+    25413386,
+    21441764,
+    4185,
+    34704877,
+    64,
+    586,
+    188,
+    1860,
+    54439832,
+    87748614,
+    1713320,
+    50662,
+    80011696,
+    83347119,
+    5370768,
+    88072607,
+    188,
+    188,
+    188,
+    188,
+    100492007,
+    913404,
+    100492007,
+    50662,
+    1650888,
+    100494914,
+    121594,
+    100494914],
+   &#39;types&#39;: {&#39;Q43229&#39;: False,
+    &#39;Q618123&#39;: False,
+    &#39;Q5&#39;: True,
+    &#39;P2427&#39;: False,
+    &#39;P1566&#39;: False,
+    &#39;P496&#39;: True},
+   &#39;rank&#39;: 2.5493406926414757,
+   &#39;score&#39;: 1.7265554428236625,
+   &#39;valid&#39;: None}],
+ &#39;best_qid&#39;: &#39;Q1079331&#39;,
+ &#39;log_likelihood&#39;: 27.46346902911082}
+</pre></div>
+</div>
+</div>
+</div>
+<p>The partial metadata for the response returned by the OpenTapioca API:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">doc</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">metadata</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;status_code&#39;: 200, &#39;reason&#39;: &#39;OK&#39;, &#39;ok&#39;: True, &#39;encoding&#39;: &#39;utf-8&#39;}
+</pre></div>
+</div>
+</div>
+</div>
+<p>Spans have <code class="docutils literal notranslate"><span class="pre">span._.annotations</span></code> and <code class="docutils literal notranslate"><span class="pre">span._.aliases</span></code> extensions. Usually they have a lot of data. Let’s print the rest of span extensions:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">description</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">rank</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">score</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">types</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">label</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">extra_aliases</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">nb_sitelinks</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">span</span><span class="o">.</span><span class="n">_</span><span class="o">.</span><span class="n">nb_statements</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>sovereign state in Central Europe
+16.722767013369445
+1.0571540026892925
+{&#39;Q43229&#39;: True, &#39;Q618123&#39;: True, &#39;Q5&#39;: False, &#39;P2427&#39;: False, &#39;P1566&#39;: True, &#39;P496&#39;: False}
+[&#39;Germany&#39;]
+None
+367
+1028
+</pre></div>
+</div>
+</div>
+</div>
+<p>Now we can vizualize the results</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">params</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;text&quot;</span><span class="p">:</span> <span class="n">doc</span><span class="o">.</span><span class="n">text</span><span class="p">,</span>
+          <span class="s2">&quot;ents&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;start&quot;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">start_char</span><span class="p">,</span>
+                    <span class="s2">&quot;end&quot;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">end_char</span><span class="p">,</span>
+                    <span class="s2">&quot;label&quot;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">label_</span><span class="p">,</span>
+                    <span class="s2">&quot;kb_id&quot;</span><span class="p">:</span> <span class="n">ent</span><span class="o">.</span><span class="n">kb_id_</span><span class="p">,</span>
+                    <span class="s2">&quot;kb_url&quot;</span><span class="p">:</span> <span class="s2">&quot;https://www.wikidata.org/entity/&quot;</span> <span class="o">+</span> <span class="n">ent</span><span class="o">.</span><span class="n">kb_id_</span><span class="p">}</span> 
+                   <span class="k">for</span> <span class="n">ent</span> <span class="ow">in</span> <span class="n">doc</span><span class="o">.</span><span class="n">ents</span><span class="p">],</span>
+          <span class="s2">&quot;title&quot;</span><span class="p">:</span> <span class="kc">None</span><span class="p">}</span>
+<span class="n">spacy</span><span class="o">.</span><span class="n">displacy</span><span class="o">.</span><span class="n">render</span><span class="p">(</span><span class="n">params</span><span class="p">,</span> <span class="n">style</span><span class="o">=</span><span class="s2">&quot;ent&quot;</span><span class="p">,</span> <span class="n">manual</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><span class="tex2jax_ignore"><div class="entities" style="line-height: 2.5; direction: ltr">
+<mark class="entity" style="background: #aa9cfc; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Christian Drosten
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">PERSON
+    <a style="text-decoration: none; color: black; font-weight: bold" href="https://www.wikidata.org/entity/Q1079331">Q1079331</a>
+    </span>
+</mark>
+ works in 
+<mark class="entity" style="background: #7aecec; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Charité
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">ORG
+    <a style="text-decoration: none; color: black; font-weight: bold" href="https://www.wikidata.org/entity/Q162684">Q162684</a>
+    </span>
+</mark>
+, 
+<mark class="entity" style="background: #ff9561; padding: 0.45em 0.6em; margin: 0 0.25em; line-height: 1; border-radius: 0.35em;">
+    Germany
+    <span style="font-size: 0.8em; font-weight: bold; line-height: 1; border-radius: 0.35em; vertical-align: middle; margin-left: 0.5rem">LOC
+    <a style="text-decoration: none; color: black; font-weight: bold" href="https://www.wikidata.org/entity/Q183">Q183</a>
+    </span>
+</mark>
+.</div></span></div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./docs"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        
+            
+
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="index.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">spaCyOpenTapioca</p>
+            </div>
+        </a>
+    </div>
+
+</div>
+        
+        </div>
+    </div>
+    <footer class="footer">
+    <div class="container">
+      <p>
+        
+          By Renat Shigapov<br/>
+        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+  
+  <script src="../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
+  </body>
+</html>
