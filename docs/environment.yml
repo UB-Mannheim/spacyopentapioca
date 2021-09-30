@@ -1,0 +1,10 @@
+name: spacyopentapioca
+channels:
+  - default
+dependencies:
+  - python>=3.7
+  - sphinx
+  - pip
+  - pip:
+    - jupyter-book
+    - spacyopentapioca

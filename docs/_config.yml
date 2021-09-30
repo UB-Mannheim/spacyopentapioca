@@ -1,0 +1,22 @@
+title : spaCyOpenTapioca
+author: Renat Shigapov
+
+# Short description about the book
+description: >-
+  A spaCy wrapper of OpenTapioca for named entity linking on Wikidata
+
+execute:
+  execute_notebooks: off
+  
+# Interact link settings
+notebook_interface: "notebook"
+
+# Launch button settings
+repository:
+  url: https://github.com/UB-Mannheim/spacyopentapioca
+  path_to_book: "docs"
+  branch: main
+
+html:
+  home_page_in_navbar: false
+  use_repository_button: true
