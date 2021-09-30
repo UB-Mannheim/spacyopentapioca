@@ -1,5 +1,7 @@
 # spaCyOpenTapioca
 
+[![PyPI version](https://badge.fury.io/py/spacyopentapioca.svg)](https://badge.fury.io/py/spacyopentapioca) <a href="https://ub-mannheim.github.io/spacyopentapioca"><img src="https://img.shields.io/badge/docs-JB-green.svg"/></a> <a href="https://mybinder.org/v2/gh/UB-Mannheim/spacyopentapioca/main?urlpath=tree/docs/docs/demo.ipynb"><img src="https://img.shields.io/badge/launch-binder-blue.svg"/></a>
+
 A [spaCy](https://spacy.io) wrapper of [OpenTapioca](https://opentapioca.org) for named entity linking on Wikidata.
 
 ## Table of contents
