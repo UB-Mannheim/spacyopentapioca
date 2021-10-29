@@ -101,10 +101,7 @@ doc = nlp("Christian Drosten works in Germany.")
 ```
 ## Vizualization
 
-NEL vizualization is added to spaCy via [pull request 9199](https://github.com/explosion/spaCy/pull/9199) for [issue 9129](https://github.com/explosion/spaCy/issues/9129). Install spaCy from GitHub via:
-```python
-pip install git+https://github.com/explosion/spaCy
-```
+NEL vizualization is added to spaCy via [pull request 9199](https://github.com/explosion/spaCy/pull/9199) for [issue 9129](https://github.com/explosion/spaCy/issues/9129). It is supported by spaCy >= 3.1.4.
 
 Use manual option in displaCy:
 ```python
