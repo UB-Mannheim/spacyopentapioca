@@ -14,7 +14,7 @@ setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/UB-Mannheim/spacyopentapioca",
-    install_requires=['spacy>=3.0.0', 'requests>=2.24.0', ],
+    install_requires=['spacy>=3.1.4', 'requests>=2.24.0', ],
     packages=find_packages(),
     classifiers=[
         "License :: OSI Approved :: MIT License",
