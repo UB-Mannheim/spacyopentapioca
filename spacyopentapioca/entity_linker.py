@@ -1,8 +1,10 @@
+import logging
 import spacy
 import requests
 from spacy.language import Language
 from spacy.tokens import Span, Doc
 
+log = logging.getLogger(__name__)
 
 @Language.factory('opentapioca',
                   default_config={"url": "https://opentapioca.org/api/annotate"})
@@ -54,15 +56,17 @@ class EntityLinker(object):
                              'LOC': t['Q618123'] + t['P1566']}
                     m = max(types.values())
                     etype = ''.join([k for k, v in types.items() if v == m])
-                except Exception:
+                except Exception as e:
+                    log.error(e, extra=ent)
                     etype = ''
                 span = doc.char_span(start, end, etype, ent_kb_id)
             else:
-                span = doc.char_span(start, end, '')
+                etype = ''
+                span = doc.char_span(start, end, etype)
             if not span:
                 span = doc.char_span(start, end, etype, ent_kb_id,
                                      alignment_mode='expand')
-                print('WARNING! The OpenTapioca-entity',
+                log.warning('The OpenTapioca-entity',
                       ent['tags'][0]['label'][0], (start,end),
                       'does not fit the span', span.text,
                       (span.start_char, span.end_char), 'in spaCy. EXPANDED!')
