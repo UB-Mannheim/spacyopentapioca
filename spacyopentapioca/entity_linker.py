@@ -61,15 +61,13 @@ class EntityLinker(object):
                     etype = ''
                 span = doc.char_span(start, end, etype, ent_kb_id)
             else:
-                etype = ''
+                etype, ent_kb_id = '', ''
                 span = doc.char_span(start, end, etype)
             if not span:
                 span = doc.char_span(start, end, etype, ent_kb_id,
                                      alignment_mode='expand')
-                log.warning('The OpenTapioca-entity',
-                      ent['tags'][0]['label'][0], (start,end),
-                      'does not fit the span', span.text,
-                      (span.start_char, span.end_char), 'in spaCy. EXPANDED!')
+                log.warning('The OpenTapioca-entity "%s" %s does not fit the span "%s" %s in spaCy. EXPANDED!',
+                            ent['tags'][0]['label'][0], (start,end), span.text, (span.start_char, span.end_char))
             span._.annotations = ent
             span._.description = ent['tags'][0]['desc']
             span._.aliases = ent['tags'][0]['aliases']
