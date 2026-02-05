@@ -6,7 +6,7 @@ class TestOpenTapioca(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         nlp = spacy.blank("en")
-        nlp.add_pipe('opentapioca')
+        nlp.add_pipe('opentapioca', config={"verify": False})
         cls.doc = nlp("Christian Drosten works in Germany")
 
     def test_opentapioca_api(self):

@@ -29,7 +29,7 @@ After installation the OpenTapioca pipeline can be used without any other pipeli
 ```python
 import spacy
 nlp = spacy.blank("en")
-nlp.add_pipe('opentapioca')
+nlp.add_pipe('opentapioca', config={"verify": False})
 doc = nlp("Christian Drosten works in Germany.")
 for span in doc.ents:
     print((span.text, span.kb_id_, span.label_, span._.description, span._.score))
@@ -38,6 +38,8 @@ for span in doc.ents:
 ('Christian Drosten', 'Q1079331', 'PERSON', 'German virologist and university teacher', 3.6533377082098895)
 ('Germany', 'Q183', 'LOC', 'sovereign state in Central Europe', 2.1099332471902863)
 ```
+
+Note the optional `verify` parameter of config defaults to `True`. If the URL is not secure this parameter must be `False` for the pipeline to work. For example, the default [URL](https://opentapioca.wordlift.io/) is not secure and requires this parameter to be `False`. See [https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings](https://urllib3.readthedocs.io/en/latest/advanced-usage.html#tls-warnings) for more details.
 
 The types and aliases are also available:
 ```python
@@ -95,7 +97,7 @@ Batched asynchronous requests to the OpenTapioca API via `nlp.pipe(List[str])`:
 ```python
 import spacy
 nlp = spacy.blank("en")
-nlp.add_pipe('opentapioca')
+nlp.add_pipe('opentapioca', config={"verify": False})
 docs = nlp.pipe(
     [
         "Christian Drosten works in Germany.",
@@ -120,7 +122,7 @@ If OpenTapioca is deployed locally, specify the URL of the new OpenTapioca API i
 ```python
 import spacy
 nlp = spacy.blank("en")
-nlp.add_pipe('opentapioca', config={"url": OpenTapiocaAPI})
+nlp.add_pipe('opentapioca', config={"url": OpenTapiocaAPI, "verify": False})
 doc = nlp("Christian Drosten works in Germany.")
 ```
 ## Vizualization
@@ -131,7 +133,7 @@ Use manual option in displaCy:
 ```python
 import spacy
 nlp = spacy.blank("en")
-nlp.add_pipe('opentapioca')
+nlp.add_pipe('opentapioca', config={"verify": False})
 doc = nlp("Christian Drosten works\n in Charité, Germany.")
 params = {"text": doc.text,
           "ents": [{"start": ent.start_char,

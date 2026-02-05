@@ -1,5 +1,6 @@
 import concurrent.futures
 import logging
+import warnings
 
 import requests
 import spacy
@@ -7,17 +8,22 @@ from spacy import util
 from spacy.language import Language
 from spacy.tokens import Doc, Span
 
+logging.captureWarnings(True)
 log = logging.getLogger(__name__)
-
 
 @Language.factory('opentapioca',
                   default_config={"url": "https://opentapioca.wordlift.io/api/annotate"})
 class EntityLinker(object):
     """Sends raw data to the OpenTapioca API. Attaches entities to the document."""
 
-    def __init__(self, nlp, name, url):
+    def __init__(self, nlp, name, url, verify=True):
         """Passes url. Registers OpenTapioca extensions for Doc and Span."""
         self.url = url
+        # Fix Issue #11: optional param to verify server's TLS certificate
+        if not verify:
+            log.warning("Unverified HTTPS request made to host %s. Making unverified HTTPS requests is strongly discouraged.\n",
+                url)
+        self.verify = verify
         Doc.set_extension("annotations", default=None, force=True)
         Doc.set_extension("metadata", default=None, force=True)
         Span.set_extension("annotations", default=None, force=True)
@@ -92,7 +98,8 @@ class EntityLinker(object):
     def make_request(self, doc: Doc):
         return requests.post(url=self.url,
                              data={'query': doc.text},
-                             headers={'User-Agent': 'spaCyOpenTapioca'})
+                             headers={'User-Agent': 'spaCyOpenTapioca'},
+                             verify=self.verify)
 
     def __call__(self, doc):
         """Requests the OpenTapioca API. Attaches entities to spans and doc."""
